@@ -58,31 +58,12 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-router.post('/:id', (req, res, next) => {
+router.post('/:id', async (req, res, next) => {
 
     if(req.isAuthenticated()) {
-        Service.findByPk(req.params.id)
-    .then(service => {
-        Company.findByPk(service.companyId)
-        .then(company => {
-            const total = (parseInt(service.cost) + parseInt(company.visitFee)).toFixed(2);
-
-            data = {
-                userId: req.session.passport.user,
-                serviceId: service.serviceId,
-                reservationDate: req.body.date,
-                reservationStatus: 'Pending',
-                total
-            }
-            
-            Order.create(data)
-            .then(res.redirect('/orders'))
-            .catch(err => {
-                console.log(err);
-                res.sendStatus(500);
-            })
-        })
-    })
+        order = await Order.findByPk(req.params.id);
+        await order.destroy();
+        res.redirect('/orders');
     } else {
         res.redirect('/login');
     }
