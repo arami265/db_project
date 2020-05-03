@@ -2,6 +2,7 @@ const express = require('express');
 const Handlebars = require('handlebars');
 const expHbs = require('express-handlebars');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+var path = require('path');
 
 var passport = require('passport');
 var session = require('express-session');
@@ -24,6 +25,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use(express.static('img'));
+var favicon = require('serve-favicon');
+app.use(favicon(path.join(__dirname, 'img', 'favicon.ico')));
+// app.use('/favicon.ico', express.static('img/favicon.ico'));
 
 
 // Database config
