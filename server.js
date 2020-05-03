@@ -1,33 +1,39 @@
+//Backend for CSCI 6333 Project
+//Author: Arnoldo Ramirez
+
+//Express used for internet routing
 const express = require('express');
+//Handlebars used for rendering web views
 const Handlebars = require('handlebars');
 const expHbs = require('express-handlebars');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 var path = require('path');
 
+//Passport used for site authentication
 var passport = require('passport');
+//Express-session used for cookies and web session
 var session = require('express-session');
+//Express-session-sequelize used for storing sessions in Amazon AWS
 const sequelizeSessionStore = require('express-session-sequelize')(session.Store);
+//Body-parser used for parsing HTTP request body
 const bodyParser = require('body-parser');
-// const path = require('path');
 
 //Express setup
 const app = express();
-// app.use(express.static(path.join(__dirname, 'public')));
 
-// Handlebars
+//Handlebars setup
 app.engine('handlebars', expHbs({
     defaultLayout: 'main',
     handlebars: allowInsecurePrototypeAccess(Handlebars)}));
 app.set('view engine', 'handlebars');
 
-// Body parser middleware
+//Body parser middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+//Static folder used for loading images
 app.use(express.static('img'));
-var favicon = require('serve-favicon');
-app.use(favicon(path.join(__dirname, 'img', 'favicon.ico')));
-// app.use('/favicon.ico', express.static('img/favicon.ico'));
+
 
 
 // Database config
@@ -65,7 +71,7 @@ app.use(passport.session()); // persistent login sessions
 
 
 
-// Define routes
+//Define routes
 const signup = require('./routes/signup');
 const login = require('./routes/login');
 const logout = require('./routes/logout');
@@ -80,14 +86,14 @@ const cleaning = require('./routes/cleaning');
 const landscaping = require('./routes/landscaping');
 const familycare = require('./routes/familycare');
 
-// Main page route
+//Main page route
 app.get('/', (req, res) => {
     res.render('landing', {layout: 'landing'});
     // console.log(req.session);
     // console.log(req.session.passport.user);
 });
 
-// Use routes
+//Use routes
 app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout', logout);
@@ -100,7 +106,6 @@ app.use('/homeImprovement', homeImprovement);
 app.use('/cleaning', cleaning);
 app.use('/landscaping', landscaping);
 app.use('/familycare', familycare);
-// app.use('/api/addresses', addresses);
 
 const port = process.env.PORT || 5000;
 
