@@ -1,0 +1,111 @@
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="birthdate"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+  <script>  
+	// Disable form submissions if there are invalid fields
+	(function() {
+	  'use strict';
+	  window.addEventListener('load', function() {
+		// Get the forms we want to add validation styles to
+		var forms = document.getElementsByClassName('needs-validation');
+		// Loop over them and prevent submission
+		var validation = Array.prototype.filter.call(forms, function(form) {
+		  form.addEventListener('submit', function(event) {
+			if (form.checkValidity() === false) {
+			  event.preventDefault();
+			  event.stopPropagation();
+			}
+			form.classList.add('was-validated');
+		  }, false);
+		});
+	  }, false);
+	})();
+	</script>
+	<style>
+	.fakeimg {
+		height: 200px;
+		background: #aaa;
+	}
+	</style>
+
+<h2><center>Create Your Profile</center></h2>
+  {{!-- <p>Try to submit this form before filling out the input fields, to see the effect.</p> --}}
+  <form id="signup" action="signup" class="needs-validation" novalidate name="signup" method="post">
+    {{!-- <div class="form-group">
+      <label for="uname1">Username:</label>
+      <input type="text" class="form-control" id="uname1" placeholder="Enter username" name="uname1" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div> --}}
+    <div class="form-row">
+		<div class="form-group col-md-5">
+		  <label for="firstName">First Name:</label>
+		  <input type="text" class="form-control" id="firstName" placeholder="Enter first name" name="firstName" required>
+		  <div class="valid-feedback">Valid.</div>
+		  <div class="invalid-feedback">Please fill out this field.</div>
+		</div>
+		<div class="form-group col-md-7">
+		  <label for="lastName">Last Name:</label>
+		  <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName" required>
+		  <div class="valid-feedback">Valid.</div>
+		  <div class="invalid-feedback">Please fill out this field.</div>
+		</div>
+	</div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone number:</label>
+		  <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number" name="phoneNumber" required>
+		  <div class="valid-feedback">Valid.</div>
+		  <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-row">
+		<div class="form-group col-md-8">
+		  <label for="email">Email:</label>
+		  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+		  <div class="valid-feedback">Valid.</div>
+		  <div class="invalid-feedback">Please fill out this field.</div>
+		</div>
+		<div class="form-group col-md-4">
+		  <label for="password">Password:</label>
+		  <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+		  <div class="valid-feedback">Valid.</div>
+		  <div class="invalid-feedback">Please fill out this field.</div>
+		</div>
+	</div>
+	<div class="form-group">
+      <label for="userType">User type (select one):</label>
+      <select class="form-control" id="userType" name="userType" required>
+		{{!-- <option selected disabled > -- Select User Type -- </option> --}}
+        <option>Customer</option>
+        <option>Contractor</option>
+      </select>
+       <div class="valid-feedback">Valid.</div>
+		  <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+	
+
+    <div class="form-group">
+        
+        <!---->
+        <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="birthdate">Date</label>
+        <input class="form-control" id="birthdate" name="birthdate" placeholder="MM/DD/YYY" type="text" required/>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        
+        <!---->
+    </div>
+	
+    <button type="submit" class="btn btn-primary" style="margin-bottom:15px">Submit</button>
+  </form>

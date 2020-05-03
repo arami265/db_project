@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Business I.T Engineers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  {{!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> --}}
+{{!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> --}}
+{{!-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/> --}}
+  
+  <!---->
+  
+  
+ <!--  jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  
+  <!---->
+</head>
+<body>
+
+<!-- This is the Jumbotron aka Header -->
+<div class="jumbotron text-center" style="margin-bottom:0">
+<h1>Business I.T Engineers</h1>
+<h5>Your One Stop for Everything Home</h5>
+</div>
+
+<!-- This is the navbar -->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" style="margin-bottom:30px">
+	<div class="navbar-header">
+	<a class="navbar-brand" href="/">Home Page</a>
+	</div>
+	<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+					  <a class="nav-link" href="/orders">My Orders</a>
+			</li>
+			{{!-- <li class="nav-item">
+				<a class="nav-link" href="/companies/add">Add a company</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link #3</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link #4</a>
+			</li> --}}
+		</ul>
+	</div>
+	<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+		<ul class="navbar-nav ml-auto">
+			<li style="margin-right:15px"><a href="/signup"><span class="fa fa-user" aria-hidden="true"></span> Sign Up </a></li>
+			<li style="margin-right:15px"><a href="/login"><span class="fa fa-user" aria-hidden="true"></span> Login </a></li>
+			<li><a href="/logout"><span aria-hidden="true"></span> Logout </a></li>
+		</ul>
+	</div>
+</nav>
+
+<div class = "container">
+    {{{body}}}
+</div>
+
+<div class="jumbotron text-center" style="margin-top:100px; margin-bottom:0">
+  <p>@Copyright of BITE (Business I.T. Engineers)</p>
+</div>
+
+</body>
+</html>
