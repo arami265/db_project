@@ -7,7 +7,6 @@ const express = require('express');
 const Handlebars = require('handlebars');
 const expHbs = require('express-handlebars');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
-var path = require('path');
 
 //Passport used for site authentication
 var passport = require('passport');

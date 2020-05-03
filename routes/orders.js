@@ -2,16 +2,11 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 
-// const company = require('../../models/company');
 const User = db.import('../models/user');
 const Service = db.import('../models/service');
 const Company = db.import('../models/company');
 const Order = db.import('../models/order');
-//const Address = db.import('../models/address');
 
-// @route   GET api/companies/
-// @desc    Gets all companies
-// @access  Public
 router.get('/', async (req, res, next) => {
     if(req.isAuthenticated()) {
         orders = await Order.findAll({where: {userId: req.session.passport.user}});

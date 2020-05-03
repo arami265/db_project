@@ -1,20 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const sequelize = require('../server');
 const db = require('../config/database');
-var passport   = require('passport');
 const generatePassword = require('../lib/passwordUtils').generatePassword;
 
-// const company = require('../../models/company');
 const User = db.import('../models/user');
 const Address = db.import('../models/address');
 const Company = db.import('../models/company');
 const Service = db.import('../models/service');
-//const Address = db.import('../models/address');
 
-// @route   GET api/companies/
-// @desc    Gets all companies
-// @access  Public
 router.get('/', (req, res) => {
     if(req.isAuthenticated()) {
         User.findByPk(req.session.passport.user)
